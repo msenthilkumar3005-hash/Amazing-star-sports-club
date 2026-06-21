@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archery Teaching Academy</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f3fff5;
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(135deg, #004d00, #228b22, #66bb6a);
+      text-align: center;
+      padding: 25px;
+      border-bottom: 4px solid #ffd700;
+    }
+
+    header h1 {
+      font-family: "Cinzel", serif;
+      font-size: 35px;
+      text-transform: uppercase;
+      background: linear-gradient(to bottom, #fff8b0, #ffd700, #b8860b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    }
+
+    nav {
+      margin-top: 18px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      margin: 0 15px;
+      padding: 8px 12px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #ffd700;
+      color: #004d00;
+    }
+
+    .hero {
+      min-height: 420px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 50px 10%;
+      color: white;
+      background:
+        linear-gradient(rgba(0, 55, 0, 0.65), rgba(0, 55, 0, 0.65)),
+        url("images/archery-banner.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .hero button {
+      margin-top: 25px;
+      padding: 13px 28px;
+      border: none;
+      border-radius: 25px;
+      background: #ffd700;
+      color: #004d00;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: white;
+      transform: scale(1.05);
+    }
+
+    section {
+      padding: 65px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: "Cinzel", serif;
+      color: #004d00;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    .section-text {
+      text-align: center;
+      margin-bottom: 35px;
+      font-size: 17px;
+      color: #333;
+    }
+
+    /* Teaching Programs */
+    #programs {
+      background: linear-gradient(135deg, #d9ffdf, #fff7c7, #d4f6ff);
+    }
+
+    .program-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .program-card {
+      background: white;
+      text-align: center;
+      padding: 30px 22px;
+      border-radius: 18px;
+      border-top: 6px solid #228b22;
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18);
+      transition: 0.4s;
+    }
+
+    .program-card:hover {
+      transform: translateY(-10px);
+      border-top-color: #ffd700;
+    }
+
+    .icon {
+      font-size: 50px;
+    }
+
+    .program-card h3 {
+      color: #004d00;
+      margin: 15px 0 10px;
+      font-size: 22px;
+    }
+
+    .program-card p {
+      line-height: 1.7;
+      color: #444;
+    }
+
+    /* Benefits */
+    #benefits {
+      background: white;
+    }
+
+    .benefit-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .benefit {
+      background: #e9ffe9;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      border: 2px solid #66bb6a;
+    }
+
+    .benefit h3 {
+      color: #004d00;
+      margin: 10px 0;
+    }
+
+    /* Gallery */
+    #gallery {
+      background: linear-gradient(135deg, #b8f7c2, #e7ffae, #aeeeff);
+    }
+
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .gallery-container img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 18px;
+      cursor: pointer;
+      border: 5px solid white;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+      transition: 0.4s;
+    }
+
+    .gallery-container img:hover {
+      transform: scale(1.06) rotate(2deg);
+      border-color: #ffd700;
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.92);
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    #popupImage {
+      max-width: 85%;
+      max-height: 65vh;
+      border: 6px solid #ffd700;
+      border-radius: 15px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 30px;
+      font-size: 45px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .popup-controls {
+      margin-top: 20px;
+    }
+
+    .popup-controls button {
+      padding: 12px 20px;
+      margin: 7px;
+      border: none;
+      border-radius: 25px;
+      background: linear-gradient(135deg, #004d00, #32cd32);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .popup-controls button:hover {
+      background: #ffd700;
+      color: #004d00;
+    }
+
+    footer {
+      text-align: center;
+      background: #004d00;
+      color: white;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .program-container,
+      .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .benefit-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-container img {
+        height: 180px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .program-container,
+      .gallery-container,
+      .benefit-container {
+        grid-template-columns: 1fr;
+      }
+
+      header h1 {
+        font-size: 25px;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Archery Teaching Academy</h1>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#programs">Classes</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div>
+      <h2>Aim With Focus, Shoot With Confidence</h2>
+      <p>
+        Learn archery step by step with professional guidance.
+        Improve your focus, body balance, strength and confidence.
+      </p>
+      <button onclick="document.getElementById('programs').scrollIntoView()">
+        Explore Classes
+      </button>
+    </div>
+  </section>
+
+  <section id="programs">
+    <h2 class="section-title">Archery Teaching Programs</h2>
+    <p class="section-text">Training programs for beginners, intermediate learners and competitors.</p>
+
+    <div class="program-container">
+
+      <div class="program-card">
+        <div class="icon">🏹</div>
+        <h3>Beginner Archery</h3>
+        <p>Learn bow handling, correct standing posture, basic aiming and safe shooting methods.</p>
+      </div>
+
+      <div class="program-card">
+        <div class="icon">🎯</div>
+        <h3>Target Practice</h3>
+        <p>Improve aim, focus and accuracy through regular target practice sessions.</p>
+      </div>
+
+      <div class="program-card">
+        <div class="icon">🏆</div>
+        <h3>Competition Training</h3>
+        <p>Advanced coaching for archery tournaments, competitions and performance improvement.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="benefits">
+    <h2 class="section-title">Benefits of Archery</h2>
+    <p class="section-text">Archery develops both physical strength and mental focus.</p>
+
+    <div class="benefit-container">
+
+      <div class="benefit">
+        <div class="icon">🧠</div>
+        <h3>Better Focus</h3>
+        <p>Builds concentration and patience.</p>
+      </div>
+
+      <div class="benefit">
+        <div class="icon">💪</div>
+        <h3>Strong Body</h3>
+        <p>Improves arm, shoulder and core strength.</p>
+      </div>
+
+      <div class="benefit">
+        <div class="icon">⚖️</div>
+        <h3>Body Balance</h3>
+        <p>Helps improve posture and stability.</p>
+      </div>
+
+      <div class="benefit">
+        <div class="icon">⭐</div>
+        <h3>Confidence</h3>
+        <p>Develops self-control and confidence.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2 class="section-title">Archery Gallery</h2>
+    <p class="section-text">Click any image to view it in full size.</p>
+
+    <div class="gallery-container">
+      <img src="1.jpeg" alt="Archery Training">
+      <img src="5.jpeg" alt="Target Practice">
+      <img src="2.jpeg" alt="Bow Training">
+      <img src="4.jpeg" alt="Archery Competition">
+      <img src="6.jpeg" alt="Group Archery Class">
+      <img src="3.jpeg" alt="Archery Achievement">
+    </div>
+  </section>
+
+  <div id="imagePopup" class="popup">
+    <span class="close-btn">&times;</span>
+
+    <img id="popupImage" src="" alt="Archery Gallery Image">
+
+    <div class="popup-controls">
+      <button id="prevBtn">❮ Previous</button>
+      <button id="randomBtn">🔀 Random</button>
+      <button id="nextBtn">Next ❯</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Archery Teaching Academy | Aim High, Achieve More</p>
+  </footer>
+
+  <script>
+    const images = document.querySelectorAll(".gallery-container img");
+    const popup = document.getElementById("imagePopup");
+    const popupImage = document.getElementById("popupImage");
+    const closeBtn = document.querySelector(".close-btn");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const randomBtn = document.getElementById("randomBtn");
+
+    let currentIndex = 0;
+
+    images.forEach((image, index) => {
+      image.addEventListener("click", () => {
+        currentIndex = index;
+        popupImage.src = images[currentIndex].src;
+        popup.style.display = "block";
+      });
+    });
+
+    function showImage() {
+      popupImage.src = images[currentIndex].src;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage();
+    });
+
+    randomBtn.addEventListener("click", () => {
+      let randomIndex;
+
+      do {
+        randomIndex = Math.floor(Math.random() * images.length);
+      } while (randomIndex === currentIndex && images.length > 1);
+
+      currentIndex = randomIndex;
+      showImage();
+    });
+
+    closeBtn.addEventListener("click", () => {
+      popup.style.display = "none";
+    });
+
+    popup.addEventListener("click", (event) => {
+      if (event.target === popup) {
+        popup.style.display = "none";
+      }
+    });
+  </script>
+
+</body>
+</html>
