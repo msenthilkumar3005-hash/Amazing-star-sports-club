@@ -56,6 +56,27 @@
       color: #004d00;
     }
 
+    /* Back to Home Button - Top Right */
+    .back-home {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ffd700;
+      color: #004d00;
+      padding: 12px 18px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      z-index: 2000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      transition: 0.3s;
+    }
+
+    .back-home:hover {
+      background: white;
+      transform: scale(1.05);
+    }
+
     .hero {
       min-height: 420px;
       display: flex;
@@ -212,12 +233,12 @@
       border-color: #ffd700;
     }
 
-    /* Popup */
+    /* Image Popup */
     .popup {
       display: none;
       position: fixed;
       inset: 0;
-      z-index: 1000;
+      z-index: 3000;
       background: rgba(0, 0, 0, 0.92);
       text-align: center;
       padding-top: 50px;
@@ -279,6 +300,13 @@
       .gallery-container img {
         height: 180px;
       }
+
+      .back-home {
+        top: 15px;
+        right: 15px;
+        padding: 10px 14px;
+        font-size: 14px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -300,6 +328,8 @@
 </head>
 
 <body>
+
+  <a href="index.html" class="back-home">Back to Home</a>
 
   <header>
     <h1>Archery Teaching Academy</h1>
@@ -330,7 +360,6 @@
     <p class="section-text">Training programs for beginners, intermediate learners and competitors.</p>
 
     <div class="program-container">
-
       <div class="program-card">
         <div class="icon">🏹</div>
         <h3>Beginner Archery</h3>
@@ -348,7 +377,6 @@
         <h3>Competition Training</h3>
         <p>Advanced coaching for archery tournaments, competitions and performance improvement.</p>
       </div>
-
     </div>
   </section>
 
@@ -357,7 +385,6 @@
     <p class="section-text">Archery develops both physical strength and mental focus.</p>
 
     <div class="benefit-container">
-
       <div class="benefit">
         <div class="icon">🧠</div>
         <h3>Better Focus</h3>
@@ -381,7 +408,6 @@
         <h3>Confidence</h3>
         <p>Develops self-control and confidence.</p>
       </div>
-
     </div>
   </section>
 
@@ -390,12 +416,12 @@
     <p class="section-text">Click any image to view it in full size.</p>
 
     <div class="gallery-container">
-      <img src="1.jpeg" alt="Archery Training">
-      <img src="5.jpeg" alt="Target Practice">
-      <img src="2.jpeg" alt="Bow Training">
-      <img src="4.jpeg" alt="Archery Competition">
-      <img src="6.jpeg" alt="Group Archery Class">
-      <img src="3.jpeg" alt="Archery Achievement">
+      <img src="A (1).jpeg" alt="Archery Training">
+      <img src="A (2).jpeg" alt="Target Practice">
+      <img src="A (3).jpeg" alt="Bow Training">
+      <img src="A (4).jpeg" alt="Archery Competition">
+      <img src="A (5).jpeg" alt="Group Archery Class">
+      <img src="A (6).jpeg" alt="Archery Achievement">
     </div>
   </section>
 
